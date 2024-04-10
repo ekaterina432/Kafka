@@ -1,14 +1,11 @@
+
 package my;
-
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Component;
-
-//@Component
+@Component
 public class MyBean {
-
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -20,7 +17,14 @@ public class MyBean {
         this.kafkaTemplate.send("someTopic", "Hello");
     }
 
+    @KafkaListener(topics = "someTopic")
+    public void processMessage(String content) {
+        System.out.println("Received message: " + content);
+
+    }
+
 }
+
 
 
 

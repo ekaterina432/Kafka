@@ -8,5 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProducerApp {
     public static void main(String[] args) {
         SpringApplication.run(ProducerApp.class, args);
-         }
+
+    }
 }
